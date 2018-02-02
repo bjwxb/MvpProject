@@ -50,15 +50,15 @@ public class VerificationCodeInput extends LinearLayout implements TextWatcher, 
     public VerificationCodeInput(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.VerificationCodeInput);
-        box = a.getInt(R.styleable.vericationCodeInput_box, 4);
+        box = a.getInt(R.styleable.VerificationCodeInput_box, 4);
 
-        childHPadding = (int) a.getDimension(R.styleable.vericationCodeInput_child_h_padding, 0);
-        childVPadding = (int) a.getDimension(R.styleable.vericationCodeInput_child_v_padding, 0);
-        boxBgFocus = a.getDrawable(R.styleable.vericationCodeInput_box_bg_focus);
-        boxBgNormal = a.getDrawable(R.styleable.vericationCodeInput_box_bg_normal);
-        inputType = a.getString(R.styleable.vericationCodeInput_inputType);
-        boxWidth = (int) a.getDimension(R.styleable.vericationCodeInput_child_width, boxWidth);
-        boxHeight = (int) a.getDimension(R.styleable.vericationCodeInput_child_height, boxHeight);
+        childHPadding = (int) a.getDimension(R.styleable.VerificationCodeInput_child_h_padding, 0);
+        childVPadding = (int) a.getDimension(R.styleable.VerificationCodeInput_child_v_padding, 0);
+        boxBgFocus = a.getDrawable(R.styleable.VerificationCodeInput_box_bg_focus);
+        boxBgNormal = a.getDrawable(R.styleable.VerificationCodeInput_box_bg_normal);
+        inputType = a.getString(R.styleable.VerificationCodeInput_inputType);
+        boxWidth = (int) a.getDimension(R.styleable.VerificationCodeInput_child_width, boxWidth);
+        boxHeight = (int) a.getDimension(R.styleable.VerificationCodeInput_child_height, boxHeight);
 
         a.recycle();
         initViews();
