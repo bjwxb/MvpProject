@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.wxb.R;
 import com.wxb.app.utils.Dlog;
+import com.wxb.mvp.ui.activity.TestCodeActivity;
 import com.wxb.mvp.ui.base.BaseFragment;
 import com.wxb.mvp.view.ObservableScrollView;
 
@@ -25,30 +26,6 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
     View fakeStatusbarView;
     @BindView(R.id.iv_banner)
     ImageView ivBanner;
-    @BindView(R.id.btn_1)
-    Button btn1;
-    @BindView(R.id.btn_2)
-    Button btn2;
-    @BindView(R.id.btn_3)
-    Button btn3;
-    @BindView(R.id.btn_4)
-    Button btn4;
-    @BindView(R.id.btn_5)
-    Button btn5;
-    @BindView(R.id.btn_6)
-    Button btn6;
-    @BindView(R.id.btn_7)
-    Button btn7;
-    @BindView(R.id.btn_8)
-    Button btn8;
-    @BindView(R.id.btn_9)
-    Button btn9;
-    @BindView(R.id.btn_10)
-    Button btn10;
-    @BindView(R.id.btn_11)
-    Button btn11;
-    @BindView(R.id.btn_12)
-    Button btn12;
     @BindView(R.id.scroll_view)
     ObservableScrollView scrollView;
 
@@ -80,6 +57,7 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
+                overlay(TestCodeActivity.class);
                 break;
             case R.id.btn_2:
                 break;

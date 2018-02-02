@@ -43,4 +43,17 @@
     <declare-styleable name="DashedLineView">
         <attr name="lineColor" format="color" />
     </declare-styleable>
+
+    <!--自定义验证码输入框-->
+    <declare-styleable name="VerificationCodeInput">
+        <attr name="box" format="integer" />
+        <attr name="child_h_padding" format="dimension"/>
+        <attr name="child_v_padding" format="dimension"/>
+        <attr name="child_width" format="dimension"/>
+        <attr name="child_height" format="dimension"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="box_bg_focus" format="reference"/>
+        <attr name="box_bg_normal" format="reference"/>
+        <attr name="inputType" format="string"/>
+    </declare-styleable>
 </resources>
