@@ -84,6 +84,24 @@ public class DbManager {
         return userDao.queryBuilder().list().get(0);
     }
 
+    public User getUser(String mobile) {
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        UserDao userDao = daoSession.getUserDao();
+        return userDao.queryBuilder().list().get(0);
+    }
+    public User getUserById(String phone){
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        UserDao userDao = daoSession.getUserDao();
+        List<User> list = userDao.queryBuilder().where(UserDao.Properties.Account.eq(phone)).list();
+        if (null!=list && list.size() > 0) {
+            return list.get(0);
+        }
+        return null;
+    }
+
+
     public User getEncryptedUser(String pwd) {
         DaoMaster master = new DaoMaster(openHelper.getEncryptedReadableDb(pwd));
         DaoSession daoSession = master.newSession();

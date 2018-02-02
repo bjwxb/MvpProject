@@ -1,4 +1,4 @@
-package com.wxb.mvp.ui.activity;
+package com.wxb.mvp.ui.activity.login;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.wxb.MainActivity;
 import com.wxb.R;
-import com.wxb.app.utils.Dlog;
 import com.wxb.app.utils.ToastUtil;
 import com.wxb.ioc.component.ActivityComponent;
 import com.wxb.mvp.base.BaseContract;
@@ -17,7 +16,7 @@ import com.wxb.mvp.contract.LoginContract;
 import com.wxb.mvp.db.DbManager;
 import com.wxb.mvp.model.entity.User;
 import com.wxb.mvp.presenter.LoginPresenterImpl;
-import com.wxb.mvp.ui.base.BaseActivity;
+import com.wxb.mvp.ui.base.BaseCustomBarActivity;
 import com.wxb.mvp.view.ClearEditText;
 import com.wxb.mvp.view.ToolbarSetting;
 
@@ -31,7 +30,7 @@ import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.functions.BiFunction;
 
-public class LoginActivity extends BaseActivity implements LoginContract.LoginView {
+public class LoginActivity extends BaseCustomBarActivity implements LoginContract.LoginView {
 
     @Inject
     LoginPresenterImpl mPresenter;
@@ -104,6 +103,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
 
     /**
      * 检查手机号是否有效
+     *
      * @param phone phone
      * @return boolean
      */
@@ -113,6 +113,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
 
     /**
      * 检查密码是否有效
+     *
      * @param password password
      * @return boolean
      */
@@ -143,7 +144,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     @Override
     public void loginSuccess(LoginBean.DatasBean datasBean) {
         User user = new User();
-        user.setNickname("哈哈大笑");
+        user.setNickname(datasBean.getUsername());
         user.setHx_login(datasBean.getHx_login());
         user.setAccount(datasBean.getUsername());
         user.setMobile(datasBean.getMobile());
@@ -152,7 +153,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
         if (DbManager.getInstance(this).isExistUser(datasBean.getMobile())) {
             user.setId(DbManager.getInstance(this).getUser().getId());
         }
-        overlay(MainActivity.class);
+        DbManager.getInstance(this).saveUser(user);
+        forward(MainActivity.class);
     }
 
     @Override

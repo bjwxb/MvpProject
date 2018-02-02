@@ -1,7 +1,7 @@
 package com.wxb.ioc.component;
 
 import com.wxb.ioc.scope.ActivityScope;
-import com.wxb.mvp.ui.activity.LoginActivity;
+import com.wxb.mvp.ui.activity.login.LoginActivity;
 
 import dagger.Subcomponent;
 

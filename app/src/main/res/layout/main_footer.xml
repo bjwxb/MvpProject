@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingTop="1px">
+    <!--首页-->
+    <RelativeLayout
+        android:id="@+id/rl_menu_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4">
+
+        <ImageView
+            android:id="@+id/iv_menu_home"
+            android:layout_width="@dimen/dp_28"
+            android:layout_height="@dimen/dp_28"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/home_selected" />
+
+        <TextView
+            android:id="@+id/tv_menu_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_menu_home"
+            android:layout_centerHorizontal="true"
+            android:text="@string/home"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+
+    <!--商城-->
+    <RelativeLayout
+        android:id="@+id/rl_menu_mall"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4">
+
+        <ImageView
+            android:id="@+id/iv_menu_mall"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_28"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/category_normal" />
+
+        <TextView
+            android:id="@+id/tv_menu_mall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_menu_mall"
+            android:layout_centerHorizontal="true"
+            android:text="@string/mall"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+
+    <!--加入我们-->
+    <RelativeLayout
+        android:id="@+id/rl_menu_join_us"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4">
+
+        <ImageView
+            android:id="@+id/iv_menu_join_us"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_28"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/collect_normal" />
+
+        <TextView
+            android:id="@+id/tv_menu_join_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_menu_join_us"
+            android:layout_centerHorizontal="true"
+            android:text="@string/join_us"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+
+    <!--发现-->
+    <RelativeLayout
+        android:id="@+id/rl_menu_nearby"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4">
+
+        <ImageView
+            android:id="@+id/iv_menu_nearby"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_28"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/discovery_normal" />
+
+        <TextView
+            android:id="@+id/tv_menu_nearby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_menu_nearby"
+            android:layout_centerHorizontal="true"
+            android:text="@string/nearby"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+
+    <!--我的-->
+    <RelativeLayout
+        android:id="@+id/rl_menu_mine"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4">
+
+        <ImageView
+            android:id="@+id/iv_menu_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_28"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/setting_normal" />
+
+        <TextView
+            android:id="@+id/tv_menu_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_menu_mine"
+            android:layout_centerHorizontal="true"
+            android:text="@string/mine"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+</LinearLayout>

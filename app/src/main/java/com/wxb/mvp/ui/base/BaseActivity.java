@@ -2,14 +2,23 @@ package com.wxb.mvp.ui.base;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
+import com.wxb.R;
 import com.wxb.app.App;
 import com.wxb.ioc.component.ActivityComponent;
 import com.wxb.ioc.component.AppComponent;
 import com.wxb.mvp.base.BaseContract;
+import com.wxb.mvp.view.StatusBarUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -30,12 +39,18 @@ public abstract class BaseActivity extends AppCompatActivity {
             setContentView(getLayoutId());
         }
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//setting orientation
+        setStatusBar();
         initButterknife();
         initComponent();
         initPresenter();
 
         initViews();
         initData();
+    }
+
+    protected void setStatusBar() {
+        //StatusBarUtil.setTranslucent(this, 0);
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
     /**

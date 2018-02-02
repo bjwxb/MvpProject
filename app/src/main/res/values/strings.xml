@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">MvpProject</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--main activity-->
+    <string name="home">首页</string>
+    <string name="mall">商城</string>
+    <string name="join_us">加入我们</string>
+    <string name="nearby">发现</string>
+    <string name="mine">我的</string>
+
+    <!--login-->
     <string name="login">登录</string>
     <string name="hint_account">请输入手机号</string>
     <string name="hint_pwd">请输入密码</string>

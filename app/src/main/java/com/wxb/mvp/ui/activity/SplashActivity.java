@@ -4,15 +4,22 @@ import android.os.Handler;
 import android.view.KeyEvent;
 
 import com.wxb.R;
+import com.wxb.mvp.ui.activity.login.LoginActivity;
 import com.wxb.mvp.ui.base.BaseActivity;
+import com.wxb.mvp.view.StatusBarUtil;
 
 public class SplashActivity extends BaseActivity {
 
     private static final long DELAY_TIME = 2000;//启动延迟时间
 
+//    @Override
+//    public int getLayoutId() {
+//        return R.layout.activity_splash;
+//    }
+
     @Override
-    public int getLayoutId() {
-        return R.layout.activity_splash;
+    protected void setStatusBar() {
+        StatusBarUtil.setTranslucent(this, 0);
     }
 
     @Override
