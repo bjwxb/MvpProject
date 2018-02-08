@@ -13,8 +13,17 @@ import com.wxb.mvp.ui.activity.TestCodeActivity;
 import com.wxb.mvp.ui.base.BaseFragment;
 import com.wxb.mvp.view.ObservableScrollView;
 
+import java.io.IOException;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by wuxiaobo on 2017/8/8.
@@ -60,6 +69,7 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
                 overlay(TestCodeActivity.class);
                 break;
             case R.id.btn_2:
+                test();
                 break;
             case R.id.btn_3:
                 break;
@@ -82,6 +92,30 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
             case R.id.btn_12:
                 break;
         }
+    }
+
+    private void test() {
+        String url = "http://mall.jixiangkeji.com/mobile/index.php?act=area&op=check_update_area";
+        OkHttpClient okHttpClient = new OkHttpClient();
+        RequestBody body = new FormBody.Builder()
+                .add("version", "1")
+                .build();
+
+        Request request = new Request.Builder().url(url).post(body).build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Dlog.e(response.body().string());
+            }
+        });
+
+
     }
 
     @Override

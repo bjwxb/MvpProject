@@ -23,14 +23,15 @@ public class CashierInputFilter implements InputFilter {
     public CashierInputFilter() {
         mPattern = Pattern.compile("([0-9]|\\.)*");
     }
+
     /**
-     * @param source    新输入的字符串
-     * @param start     新输入的字符串起始下标，一般为0
-     * @param end       新输入的字符串终点下标，一般为source长度-1
-     * @param dest      输入之前文本框内容
-     * @param dstart    原内容起始坐标，一般为0
-     * @param dend      原内容终点坐标，一般为dest长度-1
-     * @return          输入内容
+     * @param source 新输入的字符串
+     * @param start  新输入的字符串起始下标，一般为0
+     * @param end    新输入的字符串终点下标，一般为source长度-1
+     * @param dest   输入之前文本框内容
+     * @param dstart 原内容起始坐标，一般为0
+     * @param dend   原内容终点坐标，一般为dest长度-1
+     * @return 输入内容
      */
     @Override
     public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
@@ -42,7 +43,7 @@ public class CashierInputFilter implements InputFilter {
         }
         Matcher matcher = mPattern.matcher(source);
         //已经输入小数点的情况下，只能输入数字
-        if(destText.contains(POINTER)) {
+        if (destText.contains(POINTER)) {
             if (!matcher.matches()) {
                 return "";
             } else {
@@ -65,8 +66,8 @@ public class CashierInputFilter implements InputFilter {
                     return "";
                 }
                 //如果首位为“0”，则只能再输“.”
-                if(ZERO.equals(destText)){
-                    if(!POINTER.equals(sourceText)){
+                if (ZERO.equals(destText)) {
+                    if (!POINTER.equals(sourceText)) {
                         return "";
                     }
                 }

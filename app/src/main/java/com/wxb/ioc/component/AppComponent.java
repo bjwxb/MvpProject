@@ -1,6 +1,7 @@
 package com.wxb.ioc.component;
 
 import com.wxb.ioc.module.ApiModule;
+import com.wxb.mvp.model.api.ApiService;
 
 import javax.inject.Singleton;
 
@@ -14,4 +15,6 @@ import dagger.Component;
 @Component(modules = {ApiModule.class})
 public interface AppComponent {
     ActivityComponent getActivityComponent();
+
+    ApiService getApiService();
 }

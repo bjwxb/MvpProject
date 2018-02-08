@@ -6,6 +6,6 @@ package com.wxb.app.common;
  */
 public class URLConfig {
     private static final String HEADHTTP = "http://";
-    private static final String NET ="tmall.jixiangkeji.com";
+    private static final String NET ="mall.jixiangkeji.com";
     public static final String BASE_URL = HEADHTTP + NET;
 }
