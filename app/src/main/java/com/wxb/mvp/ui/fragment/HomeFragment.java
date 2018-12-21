@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.wxb.R;
 import com.wxb.app.utils.Dlog;
 import com.wxb.mvp.ui.activity.TestCodeActivity;
+import com.wxb.mvp.ui.activity.home.TestRecyclerViewActivity;
 import com.wxb.mvp.ui.base.BaseFragment;
 import com.wxb.mvp.view.ObservableScrollView;
 
@@ -72,6 +73,7 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
                 test();
                 break;
             case R.id.btn_3:
+                TestRecyclerViewActivity.actionStart(getActivity());
                 break;
             case R.id.btn_4:
                 break;

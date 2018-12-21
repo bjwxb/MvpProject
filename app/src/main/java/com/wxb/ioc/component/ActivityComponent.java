@@ -1,6 +1,7 @@
 package com.wxb.ioc.component;
 
 import com.wxb.ioc.scope.ActivityScope;
+import com.wxb.mvp.ui.activity.home.TestRecyclerViewActivity;
 import com.wxb.mvp.ui.activity.login.LoginActivity;
 
 import dagger.Subcomponent;
@@ -17,4 +18,6 @@ public interface ActivityComponent {
 
     /* login */
     void inject(LoginActivity loginActivity);
+
+    void inject(TestRecyclerViewActivity activity);
 }
