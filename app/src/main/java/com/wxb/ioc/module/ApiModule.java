@@ -1,14 +1,17 @@
 package com.wxb.ioc.module;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.jiongbull.jlog.JLog;
 import com.wxb.BuildConfig;
 import com.wxb.app.utils.Dlog;
 import com.wxb.ioc.api.Api;
 import com.wxb.ioc.api.support.HeaderInterceptor;
 import com.wxb.ioc.api.support.LoggingInterceptor;
 import com.wxb.mvp.model.api.ApiService;
+import com.wxb.mvp.model.api.MallApiService;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import javax.inject.Singleton;
 
@@ -35,8 +38,10 @@ public class ApiModule {
                 .addInterceptor(new HeaderInterceptor());
 
         if (BuildConfig.DEBUG) {
-            LoggingInterceptor loggingInterceptor = new LoggingInterceptor(new MyLog());
+            LoggingInterceptor loggingInterceptor = new LoggingInterceptor("OkHttp");
             loggingInterceptor.setLevel(LoggingInterceptor.Level.BODY);
+            //log颜色级别，决定了log在控制台显示的颜色
+            loggingInterceptor.setColorLevel(Level.WARNING);
             builder.addInterceptor(loggingInterceptor)
                     .addNetworkInterceptor(new StethoInterceptor());
         }
@@ -47,13 +52,12 @@ public class ApiModule {
     @Singleton
     @Provides
     ApiService provideApiService(OkHttpClient okHttpClient){
-        return Api.getInstance(okHttpClient).getApiService();
+        return Api.getInstance().getApiService(okHttpClient);
     }
 
-    public static class MyLog implements LoggingInterceptor.Logger {
-        @Override
-        public void log(String message) {
-            Dlog.json(message);
-        }
+    @Singleton
+    @Provides
+    MallApiService provideMallApiService(OkHttpClient okHttpClient){
+        return Api.getInstance().getMallApiService(okHttpClient);
     }
 }

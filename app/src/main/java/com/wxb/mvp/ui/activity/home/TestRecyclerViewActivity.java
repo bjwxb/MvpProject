@@ -11,22 +11,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.gson.Gson;
+import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
 import com.wxb.R;
 import com.wxb.app.utils.Dlog;
+import com.wxb.app.utils.ToastUtil;
 import com.wxb.ioc.component.ActivityComponent;
 import com.wxb.mvp.base.BaseContract;
+import com.wxb.mvp.bean.TokenBean;
 import com.wxb.mvp.contract.TestRvContract;
 import com.wxb.mvp.presenter.TestRvPresenterImpl;
 import com.wxb.mvp.ui.activity.home.adapter.TestRvAdapter;
 import com.wxb.mvp.ui.base.BaseActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
 
 //test recyclerview 下拉刷新和上拉加载
 public class TestRecyclerViewActivity extends BaseActivity implements TestRvContract.TestRvView {
@@ -102,23 +109,30 @@ public class TestRecyclerViewActivity extends BaseActivity implements TestRvCont
         srlTest.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        srlTest.setEnabled(false);
-                    }
-                },2000);
+                mPresenter.getToken(new HashMap<>());
             }
         });
     }
 
     @Override
     public void showError(Throwable throwable) {
-
+        throwable.printStackTrace();
+        if (throwable instanceof HttpException){
+            ResponseBody body = ((HttpException) throwable).response().errorBody();
+            if (null != body) {
+                try {
+                    TokenBean bean = new Gson().fromJson(body.string(), TokenBean.class);
+                    ToastUtil.showToast(this, bean.getError_description());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        srlTest.setRefreshing(false);
     }
 
     @Override
     public void completed() {
-
+        srlTest.setRefreshing(false);
     }
 }

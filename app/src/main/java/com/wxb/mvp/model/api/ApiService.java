@@ -2,6 +2,7 @@ package com.wxb.mvp.model.api;
 
 import com.wxb.mvp.bean.AllGroupBean;
 import com.wxb.mvp.bean.LoginBean;
+import com.wxb.mvp.bean.success.SucLoginBean;
 
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("mobile/index.php?act=login&op=index")
-    Observable<LoginBean> login(@FieldMap Map<String, String> map);
+    Observable<SucLoginBean> login(@FieldMap Map<String, String> map);
 
     //推广赚->全部开团页面接口
     @GET("/mobile/?act=pintuan&op=goods_list")

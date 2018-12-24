@@ -2,6 +2,7 @@ package com.wxb.mvp.contract;
 
 import com.wxb.mvp.base.BaseContract;
 import com.wxb.mvp.bean.LoginBean;
+import com.wxb.mvp.bean.LoginBean2;
 
 import java.util.Map;
 
@@ -13,6 +14,8 @@ public class LoginContract{
     public interface LoginView extends BaseContract.BaseView{
 
         void loginSuccess(LoginBean.DatasBean dataBean);
+
+        void loginSuccess2(LoginBean2 bean2);
 
         void loginError(String msg);
         /**

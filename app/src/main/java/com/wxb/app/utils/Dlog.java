@@ -47,7 +47,7 @@ public class Dlog {
 
     public static void json(String msg) {
         if (BuildConfig.DEBUG)
-            JLog.json(msg);
+            JLog.w(msg);
     }
 
     public static void de(String msg) {

@@ -1,5 +1,9 @@
 package com.wxb.ioc.api.support;
 
+import com.wxb.app.App;
+import com.wxb.app.utils.Dlog;
+import com.wxb.mvp.sp.UserInfoUtils;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -19,17 +23,29 @@ public final class HeaderInterceptor implements Interceptor {
                 original.url().toString().contains("task-list/") ||
                 original.url().toString().contains("top/") ||
                 original.url().toString().contains("post/") ||
+                original.url().toString().contains("v0/oauth/token") ||
                 original.url().toString().contains("user/")) {
             Request request = original.newBuilder()
-                    .addHeader("User-Agent", "jxClient/3.40[preload=false;locale=zh_CN;clientidbase=android-nvidia]") // 不能转UTF-8
-                    .addHeader("X-User-Agent", "jxClient/3.40[preload=false;locale=zh_CN;clientidbase=android-nvidia]")
+//                    .addHeader("User-Agent", "jxClient/3.40[preload=false;locale=zh_CN;clientidbase=android-nvidia]") // 不能转UTF-8
+//                    .addHeader("X-User-Agent", "jxClient/3.40[preload=false;locale=zh_CN;clientidbase=android-nvidia]")
 //                    .addHeader("X-Device-Id", DeviceUtils.getIMEI(AppUtils.getAppContext()))
-                    .addHeader("Host", "api.jxkj.com")
+//                    .addHeader("Host", "api.jxkj.com")
                     .addHeader("Connection", "Keep-Alive")
-                    .addHeader("If-None-Match", "W/\"2a04-4nguJ+XAaA1yAeFHyxVImg\"")
-                    .addHeader("If-Modified-Since", "Tue, 02 Aug 2016 03:20:06 UTC")
+//                    .addHeader("If-None-Match", "W/\"2a04-4nguJ+XAaA1yAeFHyxVImg\"")
+//                    .addHeader("If-Modified-Since", "Tue, 02 Aug 2016 03:20:06 UTC")
+                    .addHeader("Authorization", "Basic ZG9jdG9yX3dlYjo=")
                     .build();
             return chain.proceed(request);
+        } else if (original.url().toString().contains("v0/")){
+
+            Request request = original.newBuilder()
+                    .addHeader("Connection", "Keep-Alive")
+//                    .addHeader("If-None-Match", "W/\"2a04-4nguJ+XAaA1yAeFHyxVImg\"")
+//                    .addHeader("If-Modified-Since", "Tue, 02 Aug 2016 03:20:06 UTC")
+                    .addHeader("Authorization", "Bearer "+ UserInfoUtils.getAccessToken(App.getInstance()))
+                    .build();
+
+                    return chain.proceed(request);
         }
         return chain.proceed(original);
     }

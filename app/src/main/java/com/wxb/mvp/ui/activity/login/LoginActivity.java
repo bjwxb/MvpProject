@@ -5,13 +5,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.wxb.MainActivity;
 import com.wxb.R;
+import com.wxb.app.utils.Dlog;
 import com.wxb.app.utils.ToastUtil;
 import com.wxb.ioc.component.ActivityComponent;
 import com.wxb.mvp.base.BaseContract;
 import com.wxb.mvp.bean.LoginBean;
+import com.wxb.mvp.bean.LoginBean2;
 import com.wxb.mvp.contract.LoginContract;
 import com.wxb.mvp.db.DbManager;
 import com.wxb.mvp.model.entity.User;
@@ -143,6 +146,24 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
 
     @Override
     public void loginSuccess(LoginBean.DatasBean datasBean) {
+        Dlog.e("----------------------");
+        User user = new User();
+        user.setNickname(datasBean.getUsername());
+        user.setHx_login(datasBean.getHx_login());
+        user.setAccount(datasBean.getUsername());
+        user.setMobile(datasBean.getMobile());
+        user.setMember_avatar(datasBean.getMember_avatar());
+        user.setKey(datasBean.getKey());
+        if (DbManager.getInstance(this).isExistUser(datasBean.getMobile())) {
+            user.setId(DbManager.getInstance(this).getUser().getId());
+        }
+        DbManager.getInstance(this).saveUser(user);
+        forward(MainActivity.class);
+    }
+
+    @Override
+    public void loginSuccess2(LoginBean2 datasBean) {
+        Dlog.e(">>>>>>>>>> " + new Gson().toJson(datasBean));
         User user = new User();
         user.setNickname(datasBean.getUsername());
         user.setHx_login(datasBean.getHx_login());

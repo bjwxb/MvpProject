@@ -27,8 +27,8 @@ public class ToastUtil {
 			return;
 		}
 		if (toast == null) {
-			toast = Toast.makeText(context, s, Toast.LENGTH_LONG);
-			toast.setGravity(Gravity.CENTER, 0, 0);
+			toast = Toast.makeText(context.getApplicationContext(), s, Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.BOTTOM, 0, 100);
 			toast.show();
 			oneTime = System.currentTimeMillis();
 		} else {

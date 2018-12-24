@@ -45,6 +45,12 @@ android {
         exclude 'META-INF/license.txt'
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'InvalidPackage','MissingTranslation','CheckResult','GoogleAppIndexingWarning'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

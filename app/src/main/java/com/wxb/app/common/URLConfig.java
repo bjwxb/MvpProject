@@ -8,4 +8,6 @@ public class URLConfig {
     private static final String HEADHTTP = "http://";
     private static final String NET ="mall.jixiangkeji.com";
     public static final String BASE_URL = HEADHTTP + NET;
+
+    public static final String MALL_BASE_URL = "http://api.test.xzlcorp.com/";
 }
