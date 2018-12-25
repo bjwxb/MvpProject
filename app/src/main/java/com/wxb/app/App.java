@@ -12,6 +12,7 @@ import com.wxb.R;
 import com.wxb.ioc.component.AppComponent;
 import com.wxb.ioc.component.DaggerAppComponent;
 import com.wxb.ioc.module.ApiModule;
+import com.wxb.ioc.module.AppModule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +71,7 @@ public class App extends Application{
     }
 
     private void setupAppComponent() {
-        mAppComponent = DaggerAppComponent.builder().apiModule(new ApiModule()).build();
+        mAppComponent = DaggerAppComponent.builder().apiModule(new ApiModule()).appModule(new AppModule(this)).build();
     }
 
 }

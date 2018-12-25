@@ -13,7 +13,7 @@ import dagger.Component;
  * component
  */
 @Singleton
-@Component(modules = {ApiModule.class})
+@Component(modules = {ApiModule.class,AppModule.class})
 public interface AppComponent {
     ActivityComponent getActivityComponent();
 

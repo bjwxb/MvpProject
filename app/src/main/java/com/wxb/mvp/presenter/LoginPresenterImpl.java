@@ -1,5 +1,7 @@
 package com.wxb.mvp.presenter;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.wxb.app.common.Constants;
 import com.wxb.app.utils.Dlog;
@@ -25,10 +27,12 @@ public class LoginPresenterImpl extends BaseRxPresenter<LoginContract.LoginView>
         implements LoginContract.LoginPresenter<LoginContract.LoginView> {
 
     private ApiService mApiService;
+    private Context context;
 
     @Inject
-    LoginPresenterImpl(ApiService mApiService) {
+    LoginPresenterImpl(Context context, ApiService mApiService) {
         this.mApiService = mApiService;
+        this.context = context;
     }
 
     @Override
