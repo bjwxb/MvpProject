@@ -1,6 +1,7 @@
 package com.wxb.ioc.component;
 
 import com.wxb.ioc.module.ApiModule;
+import com.wxb.ioc.module.AppModule;
 import com.wxb.mvp.model.api.ApiService;
 
 import javax.inject.Singleton;

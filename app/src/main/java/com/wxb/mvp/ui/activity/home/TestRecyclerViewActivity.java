@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
@@ -28,11 +29,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import okhttp3.ResponseBody;
 
 //test recyclerview 下拉刷新和上拉加载
@@ -96,9 +102,11 @@ public class TestRecyclerViewActivity extends BaseActivity implements TestRvCont
         initRvHeader();
     }
 
+    TextView tvTest;
     private void initRvHeader(){
         //init banner
         View banner = LayoutInflater.from(this).inflate(R.layout.header_banner, rvContent, false);
+        tvTest = (TextView)banner.findViewById(R.id.tv_test);
 
         mAdapter.addHeaderView(banner);
     }
@@ -112,6 +120,18 @@ public class TestRecyclerViewActivity extends BaseActivity implements TestRvCont
                 mPresenter.getToken(new HashMap<>());
             }
         });
+        testRx();
+    }
+
+    private void testRx(){
+        final int count = 6;
+        //可以延时执行任务，可以做倒计时
+//        Flowable.intervalRange(0, count, 0, 1,TimeUnit.SECONDS)
+//                .map(aLong -> {return count - aLong;})
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnNext(aLong -> {tvTest.setText("Hello " + (aLong -1) + "S");})
+//                .doOnComplete(()->{tvTest.setText("Hello");})
+//                .subscribe();
     }
 
     @Override
@@ -134,5 +154,10 @@ public class TestRecyclerViewActivity extends BaseActivity implements TestRvCont
     @Override
     public void completed() {
         srlTest.setRefreshing(false);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

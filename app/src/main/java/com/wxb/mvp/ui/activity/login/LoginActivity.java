@@ -25,13 +25,19 @@ import com.wxb.mvp.view.ToolbarSetting;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginActivity extends BaseCustomBarActivity implements LoginContract.LoginView {
 
@@ -45,6 +51,7 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
     ClearEditText etPwd;
     @BindView(R.id.btn_login)
     Button btnLogin;
+    private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     @Override
     public int getLayoutId() {
@@ -87,12 +94,9 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
         Observable<CharSequence> observablePhone = RxTextView.textChanges(etPhone);
         Observable<CharSequence> observablePwd = RxTextView.textChanges(etPwd);
 
-        Observable.combineLatest(observablePhone, observablePwd, new BiFunction<CharSequence, CharSequence, Boolean>() {
-            @Override
-            public Boolean apply(CharSequence phone, CharSequence pwd) throws Exception {
-                return isPhoneValid(phone.toString()) && isPasswordValid(pwd.toString());
-            }
-        }).subscribe(aBoolean -> {
+        Disposable disposable = Observable.combineLatest(observablePhone, observablePwd, ((phone, pwd) -> {
+            return isPhoneValid(phone.toString()) && isPasswordValid(pwd.toString());
+        })).subscribe(aBoolean -> {
             if (aBoolean) {
                 btnLogin.setEnabled(true);
                 btnLogin.setBackgroundResource(R.drawable.selector_login);
@@ -101,6 +105,9 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
                 btnLogin.setBackgroundResource(R.drawable.bg_btn_disabled);
             }
         });
+
+        mCompositeDisposable.add(disposable);
+
         //RxTextView.textChanges(etPhone).subscribe(etPwd::setText);
     }
 
@@ -201,5 +208,11 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
     @Override
     public void completed() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mCompositeDisposable.dispose();
     }
 }
