@@ -143,7 +143,7 @@ public class MallUserInfoBean {
             private String meetingLecture;
             private String hospitalIntroduction;
             private String firstProfessionCompany;
-            private int unAcceptEndTime;
+            private long unAcceptEndTime;
             private String consultationAcceptStatus;
             private Object departmentCategory;
             private Object organizationId;
@@ -271,11 +271,11 @@ public class MallUserInfoBean {
                 this.firstProfessionCompany = firstProfessionCompany;
             }
 
-            public int getUnAcceptEndTime() {
+            public long getUnAcceptEndTime() {
                 return unAcceptEndTime;
             }
 
-            public void setUnAcceptEndTime(int unAcceptEndTime) {
+            public void setUnAcceptEndTime(long unAcceptEndTime) {
                 this.unAcceptEndTime = unAcceptEndTime;
             }
 

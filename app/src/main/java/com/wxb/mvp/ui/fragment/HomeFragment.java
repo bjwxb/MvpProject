@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.wxb.R;
-import com.wxb.app.glide.GlideApp;
 import com.wxb.app.utils.Dlog;
 import com.wxb.mvp.ui.activity.TestCodeActivity;
 import com.wxb.mvp.ui.activity.home.TestRecyclerViewActivity;
@@ -58,10 +57,10 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
 
 
         String url = "http://221.123.136.26/images/2018/11/27/201811271543308978856_13.jpg";
-        GlideApp.with(this)
-                .load(url)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(ivBanner);
+//        GlideApp.with(this)
+//                .load(url)
+//                .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                .into(ivBanner);
 
 //        RequestOptions options = new RequestOptions()
 //                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);

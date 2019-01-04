@@ -1,0 +1,89 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.wxb.mvp.model.dao'
+        targetGenDir 'src/main/java'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'InvalidPackage','MissingTranslation','CheckResult','GoogleAppIndexingWarning'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.dependencies["constraint-layout"]
+    api rootProject.ext.dependencies["appcompat-v7"]
+    api rootProject.ext.dependencies["support-v4"]
+    api rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["recyclerview-v7"]
+
+    //dagger start
+    api rootProject.ext.dependencies["dagger"]
+    annotationProcessor rootProject.ext.dependencies['dagger-compiler']
+    //dagger end
+
+    //rxjava start
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["retrofit2-rxjava2-adapter"]
+    api rootProject.ext.dependencies["rxbinding"]
+    //rxjava end
+
+    //retrofit
+    //api 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    //gson
+    api rootProject.ext.dependencies["gson"]
+    //okhttp
+    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["logging-interceptor"]  //logging拦截器
+
+    //stetho--debug调试工具
+    api rootProject.ext.dependencies['stetho-okhttp3']
+    api rootProject.ext.dependencies['stetho']
+
+    //greendao
+    api rootProject.ext.dependencies['greendao'] // add library
+    api rootProject.ext.dependencies['android-database-sqlcipher']//jiami
+
+    //butterknife
+    api rootProject.ext.dependencies['butterknife']
+    annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
+
+    //glide
+    //glide
+//    api 'com.github.bumptech.glide:glide:4.8.0'
+    api rootProject.ext.dependencies['glide-okhttp3-integration']
+    annotationProcessor rootProject.ext.dependencies['glide-compiler']
+
+    //eventbus
+    api rootProject.ext.dependencies["eventbus"]
+
+    //jlog
+    api rootProject.ext.dependencies['jlog']
+
+    api rootProject.ext.dependencies['BaseRecyclerViewAdapterHelper']
+    api rootProject.ext.dependencies['banner']  //最新版本
+}

@@ -37,7 +37,7 @@ public class TestRvPresenterImpl extends BaseRxPresenter<TestRvContract.TestRvVi
         addSubscribe(mallApiService.getToken(map)
                 .flatMap(tokenBean -> {
                     UserInfoUtils.saveTokenInfo(App.getInstance(), tokenBean);
-                    return mallApiService.getUserInfo();
+                    return mallApiService.getUserInfo("doctor");
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
