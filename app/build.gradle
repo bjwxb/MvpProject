@@ -81,9 +81,9 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':basiclib')
+    implementation project(':basiclib')
     annotationProcessor rootProject.ext.dependencies['dagger-compiler']
     annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
     annotationProcessor rootProject.ext.dependencies['glide-compiler']
