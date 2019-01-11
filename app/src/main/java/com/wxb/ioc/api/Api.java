@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.wxb.app.common.URLConfig;
 import com.wxb.mvp.model.api.ApiService;
 import com.wxb.mvp.model.api.MallApiService;
+import com.wxb.mvp.model.api.TrtApiService;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -31,6 +32,12 @@ public class Api {
         Retrofit retrofit = getRetrofit(okHttpClient, URLConfig.MALL_BASE_URL);
         return retrofit.create(MallApiService.class);
     }
+
+    public TrtApiService getTrtService(OkHttpClient okHttpClient){
+        Retrofit retrofit = getRetrofit(okHttpClient, URLConfig.TRT_BASE_URL);
+        return retrofit.create(TrtApiService.class);
+    }
+
 
     private Retrofit getRetrofit(OkHttpClient okHttpClient, String url){
         return new Retrofit.Builder()

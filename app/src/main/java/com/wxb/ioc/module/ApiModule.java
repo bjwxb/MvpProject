@@ -9,6 +9,7 @@ import com.wxb.ioc.api.support.HeaderInterceptor;
 import com.wxb.ioc.api.support.LoggingInterceptor;
 import com.wxb.mvp.model.api.ApiService;
 import com.wxb.mvp.model.api.MallApiService;
+import com.wxb.mvp.model.api.TrtApiService;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -59,5 +60,11 @@ public class ApiModule {
     @Provides
     MallApiService provideMallApiService(OkHttpClient okHttpClient){
         return Api.getInstance().getMallApiService(okHttpClient);
+    }
+
+    @Singleton
+    @Provides
+    TrtApiService provideTrtApiService(OkHttpClient okHttpClient){
+        return Api.getInstance().getTrtService(okHttpClient);
     }
 }

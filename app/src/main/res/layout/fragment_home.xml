@@ -33,42 +33,30 @@
 
             <Button
                 android:id="@+id/btn_1"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_44"
-                android:layout_marginEnd="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_30"
-                android:background="@drawable/selector_login"
-                android:layout_marginTop="@dimen/dp_15"
+                style="@style/btnMainStyle"
                 android:textColor="@color/white"
                 android:text="自定义验证码输入框" />
 
             <Button
                 android:id="@+id/btn_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_15"
+                style="@style/btnMainStyle"
                 android:text="test2" />
 
 
             <Button
                 android:id="@+id/btn_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_15"
+                style="@style/btnMainStyle"
                 android:text="test recyclerview" />
 
             <Button
                 android:id="@+id/btn_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="test4" />
+                style="@style/btnMainStyle"
+                android:text="属性动画demo" />
 
             <Button
                 android:id="@+id/btn_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_15"
-                android:text="test5" />
+                style="@style/btnMainStyle"
+                android:text="图表自定义view" />
 
             <Button
                 android:id="@+id/btn_6"

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wxb.mvp.ui.activity.home.TestAnimActivity">
+
+    <include layout="@layout/custom_toolbar" />
+
+    <TextView
+        android:id="@+id/tv_anim_translation"
+        style="@style/TxtMainStyle"
+        android:text="anim平移"/>
+
+    <TextView
+        android:id="@+id/tv_anim_alpha"
+        style="@style/TxtMainStyle"
+        android:text="anim透明度"/>
+
+    <TextView
+        android:id="@+id/tv_anim_rotation"
+        style="@style/TxtMainStyle"
+        android:text="anim旋转"/>
+
+    <TextView
+        android:id="@+id/tv_anim_scale"
+        style="@style/TxtMainStyle"
+        android:layout_gravity="center_horizontal"
+        android:text="anim缩放"/>
+
+
+</LinearLayout>

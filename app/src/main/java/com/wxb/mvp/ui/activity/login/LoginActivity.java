@@ -109,6 +109,14 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
         mCompositeDisposable.add(disposable);
 
         //RxTextView.textChanges(etPhone).subscribe(etPwd::setText);
+
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     /**

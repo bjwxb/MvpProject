@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/ll_left"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp_48"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@drawable/selector_toolbar"
@@ -43,7 +43,7 @@
 
     <LinearLayout
         android:id="@+id/ll_right"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp_48"
         android:layout_height="match_parent"
         android:background="@drawable/selector_toolbar"
         android:gravity="center"

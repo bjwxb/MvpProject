@@ -47,6 +47,8 @@ ext{
 
             "banner":"com.youth.banner:banner:1.4.10",
 
+            "MPAndroidChart":"com.github.PhilJay:MPAndroidChart:v3.1.0-alpha"
+
     ]
 }
 

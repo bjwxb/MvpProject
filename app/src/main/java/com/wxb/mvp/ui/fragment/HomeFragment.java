@@ -1,5 +1,7 @@
 package com.wxb.mvp.ui.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +15,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.wxb.R;
 import com.wxb.app.utils.Dlog;
 import com.wxb.mvp.ui.activity.TestCodeActivity;
+import com.wxb.mvp.ui.activity.home.TestAnimActivity;
+import com.wxb.mvp.ui.activity.home.TestChartActivity;
 import com.wxb.mvp.ui.activity.home.TestRecyclerViewActivity;
 import com.wxb.mvp.ui.base.BaseFragment;
 import com.wxb.mvp.view.ObservableScrollView;
@@ -89,12 +93,14 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
             case R.id.btn_2:
                 test();
                 break;
-            case R.id.btn_3:
+            case R.id.btn_3://rv test
                 TestRecyclerViewActivity.actionStart(getActivity());
                 break;
-            case R.id.btn_4:
+            case R.id.btn_4://属性动画
+                TestAnimActivity.actionStart(getActivity());
                 break;
-            case R.id.btn_5:
+            case R.id.btn_5://图表自定义
+                overlay(TestChartActivity.class);
                 break;
             case R.id.btn_6:
                 break;

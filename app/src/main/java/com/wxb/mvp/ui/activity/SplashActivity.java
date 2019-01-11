@@ -3,6 +3,7 @@ package com.wxb.mvp.ui.activity;
 import android.os.Handler;
 import android.view.KeyEvent;
 
+import com.wxb.MainActivity;
 import com.wxb.R;
 import com.wxb.app.utils.Dlog;
 import com.wxb.app.utils.ToastUtil;
@@ -110,7 +111,7 @@ public class SplashActivity extends BaseActivity {
 
     //jump to login
     private void jump2login() {
-        forward(LoginActivity.class);
+        forward(MainActivity.class);
     }
 
     @Override

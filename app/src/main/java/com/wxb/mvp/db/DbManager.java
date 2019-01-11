@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
 import com.facebook.stetho.common.LogUtil;
+import com.wxb.app.App;
 import com.wxb.mvp.model.dao.DaoMaster;
 import com.wxb.mvp.model.dao.DaoSession;
 import com.wxb.mvp.model.dao.UserDao;
@@ -32,7 +33,7 @@ public class DbManager {
         if (null == instance) {
             synchronized (DbManager.class) {
                 if (null == instance) {
-                    instance = new DbManager(context.getApplicationContext());
+                    instance = new DbManager(App.getInstance());
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.wxb.ioc.component;
 
 import com.wxb.ioc.scope.ActivityScope;
+import com.wxb.mvp.ui.activity.home.TestAnimActivity;
 import com.wxb.mvp.ui.activity.home.TestRecyclerViewActivity;
 import com.wxb.mvp.ui.activity.login.LoginActivity;
 
@@ -20,4 +21,6 @@ public interface ActivityComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(TestRecyclerViewActivity activity);
+
+    void inject(TestAnimActivity activity);
 }
