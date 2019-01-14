@@ -5,6 +5,8 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <include layout="@layout/custom_toolbar" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -12,6 +14,5 @@
         android:textColor="@color/black_3"
         android:text="诗句“忽如一夜春风来”的作者是谁？"
         android:background="@color/gray_f2"/>
-    <include layout="@layout/custom_toolbar" />
 
 </LinearLayout>

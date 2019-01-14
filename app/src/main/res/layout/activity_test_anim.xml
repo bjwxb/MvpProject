@@ -31,4 +31,28 @@
         android:text="anim缩放"/>
 
 
+    <TextView
+        android:id="@+id/tv_custom_interpolator"
+        style="@style/TxtMainStyle"
+        android:paddingLeft="@dimen/dp_8"
+        android:paddingRight="@dimen/dp_8"
+        android:text="自定义插值器"/>
+
+    <!--<com.wxb.mvp.ui.activity.home.view.PointView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_margin="@dimen/dp_20"/>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f2f2f2"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_test"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/ic_launcher"/>
+    </RelativeLayout>
+
 </LinearLayout>

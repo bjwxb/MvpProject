@@ -10,4 +10,6 @@ public class URLConfig {
     public static final String BASE_URL = HEADHTTP + NET;
 
     public static final String MALL_BASE_URL = "http://api.test.xzlcorp.com/";
+
+    public static final String TRT_BASE_URL = "https://dev.zhiyuntcm.com/";
 }
