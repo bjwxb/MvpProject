@@ -1,9 +1,7 @@
 package com.wxb.ioc.module;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.jiongbull.jlog.JLog;
 import com.wxb.BuildConfig;
-import com.wxb.app.utils.Dlog;
 import com.wxb.ioc.api.Api;
 import com.wxb.ioc.api.support.HeaderInterceptor;
 import com.wxb.ioc.api.support.LoggingInterceptor;
@@ -67,4 +65,10 @@ public class ApiModule {
     TrtApiService provideTrtApiService(OkHttpClient okHttpClient){
         return Api.getInstance().getTrtService(okHttpClient);
     }
+
+//    @Singleton
+//    @Provides
+//    BaseSrcModel provideBaseSrcModel(MallApiService apiService){
+//        return new BaseSrcModel(apiService);
+//    }
 }

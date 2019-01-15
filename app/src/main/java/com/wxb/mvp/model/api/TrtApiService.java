@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 
-public interface TrtApiService {
+public interface TrtApiService{
     @Multipart
     @Headers({"X-ZHIYUN-API-TOKEN:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NDcwODgwMjUsImFnZW5jeV9pZCI6MSwiZXhwIjoxNTU0ODY0MDI1LCJ0eXBlIjoiQiIsImlhdCI6MTU0NzA4ODAyNSwidXBkYXRlX3RpbWUiOiIyMDE5LTAxLTA5IDA4OjMwOjMxIn0.SPtH3RWjkPV_MpG-AHy8PdUZ4hyNW7BdRHaFlrAHUu0",
             "X-ZHIYUN-API-FOR-USER:13636382436"})

@@ -19,4 +19,8 @@ public interface BaseContract {
         void showError(Throwable throwable);
         void completed();
     }
+
+    interface BaseModel{
+        boolean isAli();
+    }
 }

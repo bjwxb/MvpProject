@@ -19,7 +19,7 @@ import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
 //商城接口
-public interface MallApiService {
+public interface MallApiService{
     @FormUrlEncoded
     @POST("/v0/oauth/token")
     Observable<TokenBean> getToken(@FieldMap Map<String, String> map);

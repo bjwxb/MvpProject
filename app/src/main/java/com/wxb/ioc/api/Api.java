@@ -2,6 +2,7 @@ package com.wxb.ioc.api;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.wxb.app.common.URLConfig;
+import com.wxb.mvp.base.BaseSrcModel;
 import com.wxb.mvp.model.api.ApiService;
 import com.wxb.mvp.model.api.MallApiService;
 import com.wxb.mvp.model.api.TrtApiService;

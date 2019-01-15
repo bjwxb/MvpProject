@@ -14,6 +14,7 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+        buildConfigField 'boolean', 'IS_ALI', 'true'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
