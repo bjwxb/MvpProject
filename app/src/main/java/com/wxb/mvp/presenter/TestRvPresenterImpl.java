@@ -6,7 +6,12 @@ import com.wxb.mvp.base.BaseRxPresenter;
 import com.wxb.mvp.bean.success.MallUserInfoBean;
 import com.wxb.mvp.contract.TestRvContract;
 import com.wxb.mvp.presenter.model.TestRvModelImpl;
+import com.wxb.mvp.presenter.model.proxy.DynamicProxy;
+import com.wxb.mvp.presenter.model.proxy.IProxy;
+import com.wxb.mvp.presenter.model.proxy.TestAliProxy;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -29,8 +34,7 @@ public class TestRvPresenterImpl extends BaseRxPresenter<TestRvContract.TestRvVi
 
     @Override
     public void getToken(Map<String, String> map) {
-
-        model.getToken(map, new TestRvContract.TestRvCallback() {
+        addSubscribe(model.getToken(map, new TestRvContract.TestRvCallback() {
             @Override
             public void success(MallUserInfoBean bean) {
                 Dlog.e(new Gson().toJson(bean));
@@ -45,7 +49,7 @@ public class TestRvPresenterImpl extends BaseRxPresenter<TestRvContract.TestRvVi
             public void complete() {
                 mView.completed();
             }
-        });
+        }));
 
 //        map.put("grant_type", "password");
 //        map.put("username", "18514748006");

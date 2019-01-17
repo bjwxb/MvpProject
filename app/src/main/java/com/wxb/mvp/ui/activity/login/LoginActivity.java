@@ -25,19 +25,14 @@ import com.wxb.mvp.view.ToolbarSetting;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.schedulers.Schedulers;
 
 public class LoginActivity extends BaseCustomBarActivity implements LoginContract.LoginView {
 
@@ -109,14 +104,6 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
         mCompositeDisposable.add(disposable);
 
         //RxTextView.textChanges(etPhone).subscribe(etPwd::setText);
-
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     /**

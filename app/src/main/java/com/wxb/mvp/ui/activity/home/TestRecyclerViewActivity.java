@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -117,7 +118,13 @@ public class TestRecyclerViewActivity extends BaseActivity implements TestRvCont
         srlTest.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mPresenter.getToken(new HashMap<>());
+                Map<String, String> map = new HashMap<>();
+                map.put("grant_type", "password");
+                map.put("username", "18514748006");
+                map.put("password", "987654321");
+                map.put("device_type", "android");
+                map.put("device_token", "");
+                mPresenter.getToken(map);
             }
         });
         testRx();

@@ -16,6 +16,7 @@ import com.wxb.app.utils.ToastUtil;
 import com.wxb.mvp.db.DbManager;
 import com.wxb.mvp.model.entity.User;
 import com.wxb.mvp.ui.base.BaseActivity;
+import com.wxb.mvp.ui.base.BaseCustomBarActivity;
 import com.wxb.mvp.ui.fragment.HomeFragment;
 import com.wxb.mvp.ui.fragment.JoinUsFragment;
 import com.wxb.mvp.ui.fragment.MallFragment;
@@ -26,7 +27,7 @@ import com.wxb.mvp.view.StatusBarUtil;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseCustomBarActivity {
     @BindView(R.id.iv_menu_home)
     ImageView ivHome;
     @BindView(R.id.iv_menu_mall)
@@ -71,7 +72,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setStatusBar() {
-        StatusBarUtil.setTranslucentForImageView(this, null);
+//        StatusBarUtil.setTranslucentForImageView(this, null);
+//        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.red), 0);
     }
 
     @Override
