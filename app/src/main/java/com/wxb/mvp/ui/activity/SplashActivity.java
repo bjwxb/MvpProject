@@ -111,7 +111,7 @@ public class SplashActivity extends BaseActivity {
 
     //jump to login
     private void jump2login() {
-        forward(MainActivity.class);
+        forward(LoginActivity.class);
     }
 
     @Override

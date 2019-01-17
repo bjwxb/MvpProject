@@ -34,6 +34,9 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * 登录页面
+ */
 public class LoginActivity extends BaseCustomBarActivity implements LoginContract.LoginView {
 
     @Inject
