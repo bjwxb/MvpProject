@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.IntDef;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnticipateInterpolator;
@@ -31,6 +32,10 @@ import com.wxb.mvp.ui.base.BaseActivity;
 import com.wxb.mvp.view.ToolbarSetting;
 
 import java.io.File;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 import javax.inject.Inject;
 
@@ -61,6 +66,32 @@ public class TestAnimActivity extends BaseActivity implements TestAnimContract.T
     ImageView ivTest;
 
 
+    //************ test 用@IntDef 替换enum  start ************//
+    private static final int MALE = 0;
+    private static final int FEMALE = 1;
+    @IntDef({MALE, FEMALE})
+    @Target(value = {ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface Sex {
+    }
+    private @Sex int currentSex;
+
+    private void setSex(@Sex int sex){
+        this.currentSex = sex;
+    }
+
+    @Sex
+    private int getSex(){
+        return this.currentSex;
+    }
+
+    private void testAnnotation(){
+        setSex(MALE);
+        setSex(FEMALE);
+//        setSex(0);wrong must be MALE or FEMALE
+    }
+    //************ test 用@IntDef 替换enum  END ************//
+
     //start this activity
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, TestAnimActivity.class);
@@ -75,6 +106,7 @@ public class TestAnimActivity extends BaseActivity implements TestAnimContract.T
     @Override
     public void initViews() {
         initToolBar();
+
     }
 
     /**
