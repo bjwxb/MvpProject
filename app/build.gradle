@@ -17,8 +17,8 @@ android {
         buildConfigField 'boolean', 'IS_ALI', 'true'
 
             // true:检查res资源是否规范
-//        aaptOptions.cruncherEnabled = false
-//        aaptOptions.useNewCruncher = false
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

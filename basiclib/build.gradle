@@ -35,7 +35,7 @@ dependencies {
     api rootProject.ext.dependencies["constraint-layout"]
     api rootProject.ext.dependencies["appcompat-v7"]
     api rootProject.ext.dependencies["support-v4"]
-//    api rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["design"]
     api rootProject.ext.dependencies["recyclerview-v7"]
 
     //dagger start
