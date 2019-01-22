@@ -29,12 +29,6 @@ public class ExtAppGlideModule extends AppGlideModule {
     @Override
     public void registerComponents(Context context, Glide glide, Registry registry) {
         super.registerComponents(context, glide, registry);
-        OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                .connectTimeout(10000, TimeUnit.SECONDS)
-                .readTimeout(10000, TimeUnit.SECONDS)
-                .writeTimeout(10000, TimeUnit.SECONDS);
-        builder.addInterceptor(new ProgressInterceptor());
-        OkHttpClient okHttpClient = builder.build();
-        registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
+        registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(client));
     }
 }

@@ -36,7 +36,6 @@ public class TestRvModelImpl extends BaseSrcModel implements IProxy {
 
     }
 
-    @Override
     public DisposableObserver getToken(Map<String, String> map, TestRvContract.TestRvCallback callback) {
 //        IProxy iProxy;
 //        if (isAli()) {

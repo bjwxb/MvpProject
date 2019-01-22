@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/test_1" />
+                android:src="@drawable/test_1" />
 
 
             <Button
