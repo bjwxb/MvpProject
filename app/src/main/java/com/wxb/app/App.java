@@ -49,7 +49,8 @@ public class App extends Application{
         List<LogLevel> logLevels = new ArrayList<>();
         logLevels.add(LogLevel.ERROR);
         JLog.init()
-                .setDebug(BuildConfig.DEBUG)//正式发包前 放开注释关闭日志
+//                .setDebug(BuildConfig.DEBUG)//正式发包前 放开注释关闭日志
+                .setDebug(true)//正式发包前 放开注释关闭日志
                 .writeToFile(true)
                 .setLogSegment(LogSegment.ONE_HOUR)//TWENTY_FOUR_HOURS
                 .setLogDir(".a" + getInstance().getString(R.string.app_name) + "V4")

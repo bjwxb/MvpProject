@@ -1,10 +1,9 @@
 package com.wxb;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.View;
@@ -15,14 +14,12 @@ import com.wxb.app.utils.Dlog;
 import com.wxb.app.utils.ToastUtil;
 import com.wxb.mvp.db.DbManager;
 import com.wxb.mvp.model.entity.User;
-import com.wxb.mvp.ui.base.BaseActivity;
 import com.wxb.mvp.ui.base.BaseCustomBarActivity;
 import com.wxb.mvp.ui.fragment.HomeFragment;
 import com.wxb.mvp.ui.fragment.JoinUsFragment;
 import com.wxb.mvp.ui.fragment.MallFragment;
 import com.wxb.mvp.ui.fragment.MineFragment;
 import com.wxb.mvp.ui.fragment.NearbyFragment;
-import com.wxb.mvp.view.StatusBarUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -103,7 +100,7 @@ public class MainActivity extends BaseCustomBarActivity {
      * 页面显示管理
      */
     private void showFragment(int index) {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         hideFragments(ft);
         initBottomBtn();

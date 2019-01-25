@@ -1,0 +1,5 @@
+{
+    "base_url": "http://api.xzlcorp.com/v0",
+    "base_url_m": "http://m.xzlcorp.com",
+    "base_url_hybrid": "http://hybrid.xzlcorp.com"
+}

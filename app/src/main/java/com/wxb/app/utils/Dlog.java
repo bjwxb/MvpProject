@@ -10,43 +10,47 @@ import com.wxb.BuildConfig;
  * Debug log
  */
 public class Dlog {
+    private static boolean isDebug(){
+        //return BuildConfig.DEBUG
+        return true;
+    }
     public static void i(String msg) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.i(msg);
     }
 
     public static void i(String tag, String msg) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.i(tag, msg);
     }
 
     public static void e(String msg) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.e(msg);
     }
 
     public static void e(String tag, String message, Throwable t) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.e(tag, t, message);
     }
 
     public static void e(Throwable t, String message) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.e(t, message);
     }
 
     public static void e(String tag, @NonNull String message) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.e(tag, message);
     }
 
     public static void e(String tag, @NonNull Throwable t) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.e(tag, t);
     }
 
     public static void json(String msg) {
-        if (BuildConfig.DEBUG)
+        if (isDebug())
             JLog.w(msg);
     }
 
