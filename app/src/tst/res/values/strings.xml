@@ -1,0 +1,10 @@
+<resources>
+
+    <!--main activity-->
+    <string name="home">Fisrst</string>
+    <string name="mall">商城</string>
+    <string name="join_us">加入我们</string>
+    <string name="nearby">发现</string>
+    <string name="mine">Mine</string>
+
+</resources>

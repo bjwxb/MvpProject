@@ -121,7 +121,7 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
                     if (aBoolean) {
                         String json = FileUtil.getAssetJson(fileName, mActivity);
                         Dlog.e(json);
-                        String targetPath = mActivity.getExternalCacheDir().getPath() + "/env/"+ fileName;
+                        String targetPath = mActivity.getCacheDir().getPath() + "/env/"+ fileName;
 
                         Dlog.e("----------- targetPath = " + targetPath);
                         FileUtil.copy(mActivity, fileName, targetPath);

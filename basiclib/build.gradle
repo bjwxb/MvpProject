@@ -11,6 +11,8 @@ android {
         versionName rootProject.ext.versionName
     }
 
+    resourcePrefix "basic_"
+
     greendao {
         schemaVersion 1
         daoPackage 'com.wxb.mvp.model.dao'

@@ -21,7 +21,7 @@ android {
         buildConfigField 'boolean', 'IS_ALI', 'true'
         flavorDimensions "default"
 
-            // true:检查res资源是否规范
+        // true:检查res资源是否规范
 //        aaptOptions.cruncherEnabled = false
 //        aaptOptions.useNewCruncher = false
 
@@ -50,6 +50,7 @@ android {
             //签名
             signingConfig signingConfigs.release
 //            resValue "string", "app_name", rootProject.ext.app_name
+
         }
 
         debug {
@@ -61,7 +62,7 @@ android {
             //签名
             signingConfig signingConfigs.release
 //            resValue "string", "app_name", rootProject.ext.app_name_dev
-            manifestPlaceholders = [APP_NAME:"MP-debug"]
+//            manifestPlaceholders = [APP_NAME: "MP-debug"]
         }
     }
 
@@ -94,23 +95,37 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     productFlavors {
-        dev{
-//            resValue "string", "app_name", rootProject.ext.app_name_dev
+        dev {
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", rootProject.ext.app_name_dev
         }
 
-        tst{
+        tst {
             applicationIdSuffix ".test"
-//            resValue "string", "app_name", rootProject.ext.app_name_test
+            resValue "string", "app_name", rootProject.ext.app_name_test
         }
 
-        prod{
-//            resValue "string", "app_name", rootProject.ext.app_name_prod
+        prod {
+            applicationIdSuffix ".prod"
+            resValue "string", "app_name", rootProject.ext.app_name_prod
         }
 
-        xiaomi{}
-        vivo{}
-        oppo{}
-        baidu{}
+        xiaomi {
+            resValue "string", "app_name", rootProject.ext.app_name
+        }
+        vivo {
+            resValue "string", "app_name", rootProject.ext.app_name
+        }
+        oppo {
+            resValue "string", "app_name", rootProject.ext.app_name
+        }
+        baidu {
+            resValue "string", "app_name", rootProject.ext.app_name
+        }
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [channel: name]
     }
 
 //    android.applicationVariants.all { variant ->
@@ -125,19 +140,24 @@ android {
 
     sourceSets {
         main {
+            //main同级建立渠道文件夹，适配不同资源，如tst/res
+            res.srcDirs = ['src/main/res']
+
+            //适配不同assets源文件
             assets.srcDirs = ['src/main/assets']
 
-            dev{
-                assets.srcDirs = ['src/main/dev/assets']
-            }
-
-            tst{
+            tst {
                 assets.srcDirs = ['src/main/tst/assets']
             }
 
-            prod{
+            dev {
+                assets.srcDirs = ['src/main/dev/assets']
+            }
+
+            prod {
                 assets.srcDirs = ['src/main/prod/assets']
             }
+
         }
     }
 

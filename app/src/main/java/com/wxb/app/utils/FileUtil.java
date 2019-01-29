@@ -101,7 +101,7 @@ public class FileUtil {
             File file = new File(path);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"), 8192);
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append("\n").append(line);
             }

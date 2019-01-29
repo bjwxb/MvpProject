@@ -8,10 +8,10 @@ ext{
 
     support = "27.1.1"
 
-    app_name = 'MVP'
-    app_name_prod = 'MP-prod'
-    app_name_test = '"MP-test"'
-    app_name_dev = 'MP-dev'
+    app_name = 'MvpPro'
+    app_name_prod = '生产MP'
+    app_name_test = '"测试MP"'
+    app_name_dev = '开发MP'
 
     dependencies = [
             "appcompat-v7": "com.android.support:appcompat-v7:${support}",
