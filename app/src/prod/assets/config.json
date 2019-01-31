@@ -1,0 +1,18 @@
+{
+    "env": "product",
+    "sentry_dsn": "https://bca4306558a846d892d35217f92c58de:aaed6f0b81bb47c6a982b6c392bc2727@sentry.xinzhili.cn/21",
+    "lean_cloud": {
+        "app_id": "Cmemc22K2aXCMJoFskvPOuxI-gzGzoHsz",
+        "app_key": "IMtQc7mojT2y9B7O0VkRFoLz"
+    },
+    "comment":"//lean_cloud_mimu暂时使用released的",
+    "lean_cloud_mimu": {
+        "app_id": "2882303761517526565",
+        "app_key": "5541752650565"
+    },
+    "tts": {
+        "app_id": "11290023",
+        "app_key": "9FlLghKMZTDDvxR1FFXyB1ij",
+        "secret_key": "uzPUZKFV3XtCCWq6YPc9XCm2NP5av9jQ"
+    }
+}

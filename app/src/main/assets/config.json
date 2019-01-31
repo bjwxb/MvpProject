@@ -1,5 +1,17 @@
 {
-    "base_url": "http://api.xzlcorp.com/v0",
-    "base_url_m": "http://m.xzlcorp.com",
-    "base_url_hybrid": "http://hybrid.xzlcorp.com"
+    "env": "released",
+    "sentry_dsn": "https://92e2902108774a60b11fd58e0f2c0c2e:785d3a467c0c4b8aa87c3e5a8ea6bc03@sentry.xinzhili.cn/19",
+    "lean_cloud": {
+        "app_id": "5v2prFeaNJYNbFaUnrUQIdKu-gzGzoHsz",
+        "app_key": "Czytv8kFALRM38D0NIlp8vmw"
+    },
+    "lean_cloud_mimu": {
+        "app_id": "2882303761517526565",
+        "app_key": "5541752650565"
+    },
+    "tts": {
+        "app_id": "11287820",
+        "app_key": "Co9G4P7X6r4AA23O6XpG8ZhG",
+        "secret_key": "WYDo2Fyma7HIW5VFjC3VGGhNvdalaMlt"
+    }
 }

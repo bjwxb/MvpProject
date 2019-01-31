@@ -1,5 +1,5 @@
 <resources>
-
+    <string name="app_name">测试Mvp</string>
     <!--main activity-->
     <string name="home">Fisrst</string>
     <string name="mall">商城</string>

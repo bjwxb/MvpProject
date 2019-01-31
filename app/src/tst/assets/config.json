@@ -1,0 +1,17 @@
+{
+    "env": "test",
+    "sentry_dsn": "https://889b9798fa554d94907f4d4194868b5f:7a1c4e59edd44df2af91feef148a0085@sentry.xinzhili.cn/20",
+    "lean_cloud": {
+        "app_id": "gqzl5LBJwPVDDGacHMfu6UzB-gzGzoHsz",
+        "app_key": "vg5zOAAUTpPUgpquUwsSptAK"
+    },
+    "lean_cloud_mimu": {
+        "app_id": "2882303761517780292",
+        "app_key": "5431778058292"
+    },
+    "tts": {
+        "app_id": "11290070",
+        "app_key": "u4M4Sz9S7MGP6HtnsanhV0y0",
+        "secret_key": "HNst2W7ZAITZMdu7vvRPAQ5Y7Fa3L2gt"
+    }
+}
