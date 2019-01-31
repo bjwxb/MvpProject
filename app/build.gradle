@@ -97,31 +97,21 @@ android {
     productFlavors {
         dev {
             applicationIdSuffix ".dev"
-            resValue "string", "app_name", rootProject.ext.app_name_dev
+//            resValue "string", "app_name", rootProject.ext.app_name_dev
         }
 
         tst {
             applicationIdSuffix ".test"
-            resValue "string", "app_name", rootProject.ext.app_name_test
         }
 
         prod {
             applicationIdSuffix ".prod"
-            resValue "string", "app_name", rootProject.ext.app_name_prod
         }
 
-        xiaomi {
-            resValue "string", "app_name", rootProject.ext.app_name
-        }
-        vivo {
-            resValue "string", "app_name", rootProject.ext.app_name
-        }
-        oppo {
-            resValue "string", "app_name", rootProject.ext.app_name
-        }
-        baidu {
-            resValue "string", "app_name", rootProject.ext.app_name
-        }
+        xiaomi {}
+        vivo {}
+        oppo {}
+        baidu {}
     }
 
     productFlavors.all {
@@ -147,15 +137,15 @@ android {
             assets.srcDirs = ['src/main/assets']
 
             tst {
-                assets.srcDirs = ['src/main/tst/assets']
+                assets.srcDirs = ['src/tst/assets']
             }
 
             dev {
-                assets.srcDirs = ['src/main/dev/assets']
+                assets.srcDirs = ['src/dev/assets']
             }
 
             prod {
-                assets.srcDirs = ['src/main/prod/assets']
+                assets.srcDirs = ['src/prod/assets']
             }
 
         }

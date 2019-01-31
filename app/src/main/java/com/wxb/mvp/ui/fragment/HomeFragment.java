@@ -7,11 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.wxb.MainActivity;
 import com.wxb.R;
 import com.wxb.app.utils.FileUtil;
 import com.wxb.app.utils.Dlog;
+import com.wxb.mvp.bean.EnvBean;
 import com.wxb.mvp.ui.activity.TestCodeActivity;
 import com.wxb.mvp.ui.activity.home.TestAnimActivity;
 import com.wxb.mvp.ui.activity.home.TestChartActivity;
@@ -120,14 +122,17 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
                 .subscribe(aBoolean -> {
                     if (aBoolean) {
                         String json = FileUtil.getAssetJson(fileName, mActivity);
-                        Dlog.e(json);
-                        String targetPath = mActivity.getCacheDir().getPath() + "/env/"+ fileName;
+                        EnvBean bean = new Gson().fromJson(json, EnvBean.class);
+                        Dlog.json(new Gson().toJson(bean));
+                        Dlog.json("wxb", new Gson().toJson(bean), "============");
 
-                        Dlog.e("----------- targetPath = " + targetPath);
-                        FileUtil.copy(mActivity, fileName, targetPath);
-
-                        String ret = FileUtil.getFileOutputString(targetPath);
-                        Dlog.e("============= ret = " + ret);
+//                        String targetPath = mActivity.getCacheDir().getPath() + "/env/"+ fileName;
+//
+//                        Dlog.e("----------- targetPath = " + targetPath);
+//                        FileUtil.copy(mActivity, fileName, targetPath);
+//
+//                        String ret = FileUtil.getFileOutputString(targetPath);
+//                        Dlog.e("============= ret = " + ret);
 
                     }
                 });
