@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.wxb.MainActivity;
 import com.wxb.R;
+import com.wxb.app.utils.AppUtil;
 import com.wxb.app.utils.Dlog;
 import com.wxb.app.utils.ToastUtil;
 import com.wxb.ioc.component.ActivityComponent;
@@ -69,6 +70,8 @@ public class LoginActivity extends BaseCustomBarActivity implements LoginContrac
     @Override
     public void initViews() {
         initToolBar();
+
+        Dlog.e("************** flavor channel is " + AppUtil.getFlavorChannel());
     }
 
     /**

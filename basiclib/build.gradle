@@ -11,6 +11,8 @@ android {
         versionName rootProject.ext.versionName
     }
 
+    resourcePrefix "basic_"
+
     greendao {
         schemaVersion 1
         daoPackage 'com.wxb.mvp.model.dao'
@@ -49,6 +51,7 @@ dependencies {
     api rootProject.ext.dependencies["converter-gson"]
     api rootProject.ext.dependencies["retrofit2-rxjava2-adapter"]
     api rootProject.ext.dependencies["rxbinding"]
+    api rootProject.ext.dependencies["rxpermissions"]
     //rxjava end
 
     //retrofit

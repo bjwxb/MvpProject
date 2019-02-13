@@ -1,0 +1,138 @@
+//******************************** test gradle start *************************************************
+ext.age = 18;
+ext{
+    name = "zhansan"
+    phone = "13651269612"
+}
+def dir = new File("i:\\android\\MvpProject\\app\\src\\main")
+
+//第一种创建task方式
+task HelloWorld{
+    doFirst(){
+        println("=========Hello world -----------")
+    }
+
+    //遍历目录下所有文件，包括子文件夹
+//    fileTree(dir){
+//        //过滤规则
+//        include "*.xml"
+//    }.each {
+//        file -> println("--------- name is " + file.name)
+//    }
+
+
+    doLast(){
+        //遍历当前目录
+        files(dir.listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File file, String name) {
+                return name.contains("es")
+            }
+        })).each {
+            file -> println "doLast>>>>>>>>> fileName is "+file.name
+        }
+    }
+//    println age
+//    println name
+//    println phone
+}
+
+//第二种创建task方式
+tasks.create("Hello", {
+    //在任务执行之前
+    doFirst(){
+        println("========= Hello =============")
+//        System.out.println("what are you doing?")
+    }
+
+    //在任务执行之后
+    doLast(){
+        def person = new Person(name:"Jack");
+
+        println(">>>>>>>>>>>> person name is " + person.getName())
+        println("************** Hello ***************")
+    }
+})
+
+//默认会隐式的创建getter、setter方法，并且会提供带参的构造器
+class Person{
+    String name
+}
+
+
+//第三种创建task方式
+task HaHa(){
+    dependsOn Hello, HelloWorld
+    doFirst{
+        println("------------- HaHa ------------")
+    }
+}
+
+//第四种创建task方式
+task HeHe <<{
+    println(">>>>>>>>>>>>>>> HeHe")
+}
+
+task HeiHei{
+    doFirst(){
+        println(config)
+    }
+}
+/**
+ * 修改example.json
+ * @param type 0-release 1-debug 2-yufa
+ * @return
+ */
+def modifyAssetsConfig(int type){
+    def assetDir= new File(project.projectDir.absolutePath+"/src/main/assets")
+
+    def configText = new File(assetDir.absolutePath+"/config.json")
+
+    String jsonStr = "";
+    if(type == 1){//测试
+        jsonStr = "{str1}";
+    }else if(type == 0){//正式
+        jsonStr = "{str2}";
+    }else if(type == 2){//预发
+        jsonStr = "{str3}";
+    }
+    println("type:"+type)
+
+    println(getAssetsString(configText.name))
+
+//    configText.setText(jsonStr, "utf-8")
+}
+
+tasks.whenTaskAdded {
+    theTask -> println("theTask.name:"+ theTask.name + " " + theTask.group)
+        if(theTask.name.equalsIgnoreCase("mergeDebugAssets")){
+            theTask.doFirst { modifyAssetsConfig(1) }
+        }
+        if(theTask.name.equalsIgnoreCase("mergeReleaseAssets")){
+            theTask.doFirst { modifyAssetsConfig(0) }
+        }
+        if(theTask.name.equalsIgnoreCase("mergeYufaAssets")){
+            theTask.doFirst { modifyAssetsConfig(2) }
+        }
+}
+
+/**
+ * 读取本地文件中字符串
+ * @param fileName
+ * @return
+ */
+private String getAssetsString(String fileName) {
+    StringBuilder stringBuilder = new StringBuilder();
+    try {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(
+                getAssets().open(fileName), "UTF-8") );
+        String line;
+        while ((line = bf.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return stringBuilder.toString();
+}
+//******************************** test gradle END *************************************************

@@ -2,6 +2,7 @@ package com.wxb.mvp.ui.activity;
 
 import android.view.KeyEvent;
 
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.wxb.app.utils.Dlog;
 import com.wxb.mvp.ui.activity.login.LoginActivity;
 import com.wxb.mvp.ui.base.BaseActivity;
@@ -35,7 +36,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initViews() {
-
     }
 
     @Override
