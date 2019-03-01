@@ -91,4 +91,5 @@ dependencies {
     api rootProject.ext.dependencies['banner']  //最新版本
 
     api rootProject.ext.dependencies['MPAndroidChart']
+    api rootProject.ext.dependencies['swipebacklayout']
 }

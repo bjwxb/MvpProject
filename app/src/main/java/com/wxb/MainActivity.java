@@ -75,7 +75,7 @@ public class MainActivity extends BaseCustomBarActivity {
 
     @Override
     public void initViews() {
-
+        setSwipeBackEnable(false);//main activity: 禁用滑动finish
     }
 
     @Override

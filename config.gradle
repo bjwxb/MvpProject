@@ -54,7 +54,8 @@ ext{
 
             "banner":"com.youth.banner:banner:1.4.10",
 
-            "MPAndroidChart":"com.github.PhilJay:MPAndroidChart:v3.1.0-alpha"
+            "MPAndroidChart":"com.github.PhilJay:MPAndroidChart:v3.1.0-alpha",
+            "swipebacklayout":"me.imid.swipebacklayout.lib:library:1.1.0"
 
     ]
 }

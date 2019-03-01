@@ -2,6 +2,7 @@ package com.wxb.mvp.ui.base;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.wxb.R;
 import com.wxb.app.App;
+import com.wxb.app.utils.DpPxUtils;
 import com.wxb.ioc.component.ActivityComponent;
 import com.wxb.ioc.component.AppComponent;
 import com.wxb.mvp.base.BaseContract;
@@ -16,12 +18,14 @@ import com.wxb.mvp.view.StatusBarUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 /**
  * Created by wuxiaobo on 2018/1/26.
  * activity 基类
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends SwipeBackActivity {
     protected AppComponent mAppComponent;
     protected ActivityComponent mActivityComponent;
     protected Unbinder mUnbinder;//注解
@@ -40,8 +44,19 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initViews();
         initData();
+        initSwipeLayout();
     }
 
+    //滑动关闭activity
+    private void initSwipeLayout(){
+        SwipeBackLayout swipeBackLayout = getSwipeBackLayout();
+        //设置滑动方向，可设置EDGE_LEFT, EDGE_RIGHT, EDGE_ALL, EDGE_BOTTOM
+        swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
+        swipeBackLayout.setEdgeSize(DpPxUtils.getScreenWidth(this)/2);//滑动删除的效果只能从边界滑动才有效果，如果要扩大touch的范围，可以调用这个方法
+//        swipeBackLayout.setScrimColor(0xaa000000);
+    }
+
+    //设置状态栏颜色
     protected void setStatusBar() {
         //StatusBarUtil.setTranslucent(this, 0);
         StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary));

@@ -6,10 +6,21 @@
     android:orientation="vertical"
     tools:context=".mvp.ui.activity.home.TestRecyclerViewActivity">
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:background="@color/main_color"
+        android:text="标题"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center"
+        android:layout_height="@dimen/dp_60" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/srl_test"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_content"
@@ -17,4 +28,14 @@
             android:layout_height="wrap_content"/>
     </android.support.v4.widget.SwipeRefreshLayout>
 
+
+    <TextView
+        android:id="@+id/tv_bottom"
+        android:layout_width="match_parent"
+        android:background="@color/main_color"
+        android:text="bottom"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center"
+        android:layout_height="@dimen/dp_48" />
 </LinearLayout>
