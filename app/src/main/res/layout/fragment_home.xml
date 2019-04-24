@@ -9,7 +9,8 @@
         android:id="@+id/fake_statusbar_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/statusbar_view_height"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:visibility="gone"/>
 
 
     <com.wxb.mvp.view.ObservableScrollView
@@ -34,6 +35,12 @@
             <Button
                 android:id="@+id/btn_1"
                 style="@style/btnMainStyle"
+                android:layout_width="@dimen/dp_80"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
                 android:textColor="@color/white"
                 android:text="自定义验证码输入框" />
 
@@ -68,10 +75,8 @@
 
             <Button
                 android:id="@+id/btn_7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_15"
-                android:text="test7" />
+                style="@style/btnMainStyle"
+                android:text="可滑动折线图"  />
 
 
             <Button

@@ -91,13 +91,18 @@ public class VerificationCodeInput extends LinearLayout implements TextWatcher, 
 
 
             editText.setOnKeyListener(this);
-            if (i == 0)
+            if (i == 0){
                 setBg(editText, true);
-            else setBg(editText, false);
+            } else {
+                setBg(editText, false);
+            }
+
             editText.setTextColor(Color.BLACK);
             editText.setLayoutParams(layoutParams);
             editText.setGravity(Gravity.CENTER);
             editText.setInputType(EditorInfo.TYPE_CLASS_PHONE);
+            editText.setCursorVisible(false);
+            editText.setTextSize(20);
             editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1), new CashierInputFilter()});
 
             if (TYPE_NUMBER.equals(inputType)) {

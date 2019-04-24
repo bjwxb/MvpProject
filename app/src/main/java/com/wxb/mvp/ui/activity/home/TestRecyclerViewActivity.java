@@ -83,7 +83,7 @@ public class TestRecyclerViewActivity extends BaseActivity implements TestRvCont
             mList.add("index + " + i);
         }
         mAdapter = new TestRvAdapter(mList);
-
+        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_RIGHT);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {

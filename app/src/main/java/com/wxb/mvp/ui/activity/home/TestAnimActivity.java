@@ -5,7 +5,9 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.IntDef;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnticipateInterpolator;
@@ -40,6 +42,8 @@ import java.lang.annotation.Target;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -69,23 +73,38 @@ public class TestAnimActivity extends BaseActivity implements TestAnimContract.T
     //************ test 用@IntDef 替换enum  start ************//
     private static final int MALE = 0;
     private static final int FEMALE = 1;
+
+
+    @OnClick({R.id.tv_anim_translation, R.id.tv_anim_alpha})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_anim_translation:
+                float bottomY = tvAnimTranslation.getY();
+                tvAnimTranslation.setY(bottomY - 20);
+            case R.id.tv_anim_alpha:
+                break;
+        }
+    }
+
     @IntDef({MALE, FEMALE})
     @Target(value = {ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD})
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Sex {
     }
-    private @Sex int currentSex;
 
-    private void setSex(@Sex int sex){
+    private @Sex
+    int currentSex;
+
+    private void setSex(@Sex int sex) {
         this.currentSex = sex;
     }
 
     @Sex
-    private int getSex(){
+    private int getSex() {
         return this.currentSex;
     }
 
-    private void testAnnotation(){
+    private void testAnnotation() {
         setSex(MALE);
         setSex(FEMALE);
 //        setSex(0);wrong must be MALE or FEMALE
@@ -127,13 +146,16 @@ public class TestAnimActivity extends BaseActivity implements TestAnimContract.T
     public void initData() {
 //        test();
 
-        testAnimTranslation();
+//        testAnimTranslation();
         testAnimAlpha();
         testAnimRotation();
         testAnimScale();
 
         testCustomInterpolator();
         testInterpolator();
+    }
+
+    private void testAnim() {
     }
 
     private void testInterpolator() {

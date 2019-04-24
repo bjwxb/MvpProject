@@ -17,6 +17,7 @@ import com.wxb.mvp.bean.EnvBean;
 import com.wxb.mvp.ui.activity.TestCodeActivity;
 import com.wxb.mvp.ui.activity.home.TestAnimActivity;
 import com.wxb.mvp.ui.activity.home.TestChartActivity;
+import com.wxb.mvp.ui.activity.home.TestLineChartActivity;
 import com.wxb.mvp.ui.activity.home.TestRecyclerViewActivity;
 import com.wxb.mvp.ui.base.BaseFragment;
 import com.wxb.mvp.view.ObservableScrollView;
@@ -139,6 +140,7 @@ public class HomeFragment extends BaseFragment implements ObservableScrollView.S
 
                 break;
             case R.id.btn_7:
+                overlay(TestLineChartActivity.class);
                 break;
             case R.id.btn_8:
                 break;

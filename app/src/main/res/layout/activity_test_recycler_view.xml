@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".mvp.ui.activity.home.TestRecyclerViewActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:background="@color/main_color"
-        android:text="标题"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_16"
-        android:gravity="center"
-        android:layout_height="@dimen/dp_60" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:background="@color/main_color"
+            android:text="标题"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:gravity="center"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:layout_height="@dimen/dp_60" />
+    </android.support.design.widget.AppBarLayout>
+
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/srl_test"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
-    <TextView
-        android:id="@+id/tv_bottom"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@color/main_color"
-        android:text="bottom"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_16"
-        android:gravity="center"
-        android:layout_height="@dimen/dp_48" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_behavior="com.wxb.mvp.view.behavior.MyBottomBarBehavior">
+        <TextView
+            android:id="@+id/tv_bottom"
+            android:layout_width="match_parent"
+            android:background="@color/main_color"
+            android:text="bottom"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:gravity="center"
+            android:layout_height="@dimen/dp_48" />
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

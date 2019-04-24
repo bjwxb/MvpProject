@@ -160,6 +160,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':basiclib')
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     annotationProcessor rootProject.ext.dependencies['dagger-compiler']
     annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
     annotationProcessor rootProject.ext.dependencies['glide-compiler']
